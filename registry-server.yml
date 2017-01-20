@@ -1,0 +1,19 @@
+eureka:
+  instance:
+    hostname: localhost
+  client: # Not a service, don't register with yourself
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+server:
+  port: 1111
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: DEBUG

@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: account-service
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:account;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    platform: h2
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  zipkin:
+    baseUrl: http://localhost:9411/
+  sleuth:
+    sampler:
+      percentage: 1.0 # Sampling all requests
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+server:
+  port: 2222
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: DEBUG
